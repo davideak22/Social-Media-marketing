@@ -53,19 +53,23 @@
 ### Phase 2: Core Scenes & Visuals (Completed)
 
 - [x] **Intro Scene:** High-impact title with entrance animations
-- [x] **Poll Scene:** Interactive voting cards
-- [x] **About Scene:** Animated counters for social proof
-- [x] **Definition Scene:** Three pillars visualization
-- [x] **Design Theory Scene:** Font morphing interaction
-- [x] **Design Mistakes Scene:** Chaos vs Order visual
+- [x] **Poll Scene:** Interactive voting cards (+10 votes/click)
+- [x] **About Scene:** Animated counters + floating idle animation
+- [x] **TitleScene:** New centered typography scenes for transitions
+- [x] **Definition Scene:** Three pillars interaction
+- [x] **Design Theory Scene:** Font morphing interaction (Keyboard Controlled)
+- [x] **Design Mistakes Scene:** Chaos vs Order visual (Keyboard Controlled)
 - [x] **Inspiration Scene:** Lens interaction
+- [x] **LogoComparisonScene:** Geometric vs Branded transformation
+- [x] **VersionHistoryScene:** First Ver vs Latest Ver (1:1 aspect)
 - [x] **Photography Scene:** Viewfinder overlay
-- [x] **Video Analysis Scene:** TikTok mockup
+- [x] **VideoAnalysisScene:** Video with mute/play controls + annotations
 - [x] **Cultural Context Scene:** Cinematic transitions
 - [x] **Strategy Scene:** Interactive timeline
 - [x] **AI Scene:** Human vs AI comparison
 - [x] **Interactive Scene:** Brainstorming visualization
 - [x] **Recruitment Scene:** Final CTA
+- [x] **ThankYouScene:** Credits and social links
 
 ### Phase 3: Polish & Preload (In Progress)
 

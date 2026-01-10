@@ -19,6 +19,7 @@ import { AIScene } from '../scenes/AIScene';
 import { InteractiveScene } from '../scenes/InteractiveScene';
 import { RecruitmentScene } from '../scenes/RecruitmentScene';
 import { ThankYouScene } from '../scenes/ThankYouScene';
+import { VersionHistoryScene } from '../scenes/VersionHistoryScene';
 
 const SCENES = [
   IntroScene,
@@ -30,6 +31,7 @@ const SCENES = [
   DesignMistakesScene,
   InspirationScene,
   LogoComparisonScene,
+  VersionHistoryScene,
   PhotographyScene,
   VideoAnalysisScene,
   CulturalContextScene,
