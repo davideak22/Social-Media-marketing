@@ -1,8 +1,8 @@
  import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 // Replace with actual 1:1 aspect ratio assets
-import version1Img from '../assets/version1_placeholder.png';
-import latestImg from '../assets/latest_placeholder.png';
+import version1Img from '../assets/insta-01.jpg';
+import latestImg from '../assets/harmadikakademia.png';
 
 export function VersionHistoryScene() {
   return (
@@ -27,11 +27,11 @@ export function VersionHistoryScene() {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-col items-center space-y-6"
+                className="flex flex-col items-center text-center space-y-6"
             >
                 <div className="relative group">
                     <div className="w-80 h-80 rounded-3xl bg-neutral-900 border border-neutral-800 overflow-hidden flex items-center justify-center relative">
-                         <img src={version1Img} alt="Első verzió" className="w-full h-full object-contain p-4 opacity-70 grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100" onError={(e) => e.currentTarget.style.display = 'none'} />
+                         <img src={version1Img} alt="Első verzió" className="w-full h-full object-contain p-4 opacity-100  transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100" onError={(e) => e.currentTarget.style.display = 'none'} />
                          <div className="absolute inset-0 flex items-center justify-center -z-10 text-neutral-700 font-mono text-sm">
                             IMG: assets/version1.png
                         </div>
@@ -52,7 +52,7 @@ export function VersionHistoryScene() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 }}
-                className="flex flex-col items-center space-y-6"
+                className="flex flex-col items-center text-center space-y-6"
             >
                 <div className="relative group">
                     {/* Glowing effect for latest */}

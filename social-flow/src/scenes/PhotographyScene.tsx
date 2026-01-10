@@ -1,10 +1,25 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Camera, Grid, Maximize, Aperture, Focus } from 'lucide-react';
+import cameraFeedImg from '../assets/20251213093618_DeakDavid.jpg';
 
 export function PhotographyScene() {
   const [showGrid, setShowGrid] = useState(true);
   const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+        // Space or Enter triggers the "Capture" / Focus toggle
+        if (e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation(); // Stop SceneController from navigating
+            setIsFocused(prev => !prev);
+        }
+    };
+    window.addEventListener('keydown', handleKeyDown, { capture: true });
+    return () => window.removeEventListener('keydown', handleKeyDown, { capture: true });
+  }, []);
 
   return (
     <div className="h-full w-full bg-black relative overflow-hidden flex items-center justify-center">
@@ -13,7 +28,7 @@ export function PhotographyScene() {
       <div 
         className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out"
         style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2564&auto=format&fit=crop")',
+            backgroundImage: `url(${cameraFeedImg})`,
             filter: isFocused ? 'brightness(0.8) blur(0px)' : 'brightness(0.4) blur(10px)',
             transform: isFocused ? 'scale(1.05)' : 'scale(1)'
         }}
