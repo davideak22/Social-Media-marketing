@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Rocket, Zap, History } from 'lucide-react';
+import { usePresentationStore } from '../store/presentationStore';
 
 export function StrategyScene() {
   const steps = [
@@ -10,6 +11,16 @@ export function StrategyScene() {
   ];
 
   const [activeStep, setActiveStep] = useState(0);
+  const { setCustomNextHandler } = usePresentationStore();
+
+  useEffect(() => {
+    if (activeStep < 3) {
+      setCustomNextHandler(() => setActiveStep(prev => prev + 1));
+    } else {
+      setCustomNextHandler(null);
+    }
+    return () => setCustomNextHandler(null);
+  }, [activeStep, setCustomNextHandler]);
 
   return (
     <div className="h-full w-full bg-neutral-950 text-white flex flex-col items-center justify-center p-8 relative overflow-hidden"

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import bgImage from '../assets/vlad-sargu-ItphH2lGzuI-unsplash.jpg';
 
 export function CulturalContextScene() {
   return (
@@ -11,7 +12,7 @@ export function CulturalContextScene() {
         transition={{ duration: 20, ease: "linear" }}
         className="absolute inset-0 bg-cover bg-center opacity-60"
         style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop")',
+            backgroundImage: `url(${bgImage})`,
         }}
       />
       

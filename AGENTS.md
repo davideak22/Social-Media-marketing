@@ -62,10 +62,11 @@
 - [x] **Inspiration Scene:** Lens interaction
 - [x] **LogoComparisonScene:** Geometric vs Branded transformation
 - [x] **VersionHistoryScene:** First Ver vs Latest Ver (1:1 aspect)
-- [x] **Photography Scene:** Viewfinder overlay
+- [x] **Photography Scene:** Viewfinder overlay (Interactive Blocking)
 - [x] **VideoAnalysisScene:** Video with mute/play controls + annotations
-- [x] **Cultural Context Scene:** Cinematic transitions
-- [x] **Strategy Scene:** Interactive timeline
+- [x] **Cultural Context Scene:** Cinematic transitions (Updated with local assets)
+- [x] **TikTokTransitionScene:** New transition scene duplicated from Video Analysis
+- [x] **Strategy Scene:** Interactive timeline (Keyboard Controlled)
 - [x] **AI Scene:** Human vs AI comparison
 - [x] **Interactive Scene:** Brainstorming visualization
 - [x] **Recruitment Scene:** Final CTA

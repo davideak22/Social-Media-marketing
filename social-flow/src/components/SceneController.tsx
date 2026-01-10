@@ -12,6 +12,7 @@ import { DesignMistakesScene } from '../scenes/DesignMistakesScene';
 import { InspirationScene } from '../scenes/InspirationScene';
 import { LogoComparisonScene } from '../scenes/LogoComparisonScene';
 import { PhotographyScene } from '../scenes/PhotographyScene';
+import { TikTokTransitionScene } from '../scenes/TikTokTransitionScene';
 import { VideoAnalysisScene } from '../scenes/VideoAnalysisScene';
 import { CulturalContextScene } from '../scenes/CulturalContextScene';
 import { StrategyScene } from '../scenes/StrategyScene';
@@ -33,6 +34,7 @@ const SCENES = [
   LogoComparisonScene,
   VersionHistoryScene,
   PhotographyScene,
+  TikTokTransitionScene,
   VideoAnalysisScene,
   CulturalContextScene,
   StrategyScene,

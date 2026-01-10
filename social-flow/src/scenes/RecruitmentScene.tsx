@@ -7,7 +7,7 @@ export function RecruitmentScene() {
     { icon: Camera, label: "Események" },
     { icon: Users, label: "Kapcsolatok" },
     { icon: Star, label: "Valós tapasztalat" },
-    { icon: Award, label: "Nem jegy, hanem skill" },
+    { icon: Award, label: "Kézzelfogható eredmény" },
   ];
 
   return (

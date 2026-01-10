@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export function InteractiveScene() {
     const questions = [
         "Milyen tartalmat néznétek szívesen?",
-        "Mitől lenne menő egy iskolai oldal?",
+        "Mitől lenne menő egy dt oldal?",
         "Mi hiányzik most?"
     ];
 

@@ -2,24 +2,35 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Camera, Grid, Maximize, Aperture, Focus } from 'lucide-react';
 import cameraFeedImg from '../assets/20251213093618_DeakDavid.jpg';
+import { usePresentationStore } from '../store/presentationStore';
 
 export function PhotographyScene() {
   const [showGrid, setShowGrid] = useState(true);
   const [isFocused, setIsFocused] = useState(false);
+  const { setNavigationBlocked } = usePresentationStore();
 
   useEffect(() => {
+    // Initial state: Block navigation until photo is "taken"
+    if (!isFocused) {
+        setNavigationBlocked(true);
+    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
-        // Space or Enter triggers the "Capture" / Focus toggle
-        if (e.key === ' ' || e.key === 'Enter') {
+        // Space, Enter, or Right Arrow triggers the "Capture"
+        if ((e.key === ' ' || e.key === 'Enter' || e.key === 'ArrowRight') && !isFocused) {
             e.preventDefault();
             e.stopPropagation(); // Stop SceneController from navigating
-            setIsFocused(prev => !prev);
+            setIsFocused(true);
+            setNavigationBlocked(false); // Unblock for next interaction
         }
     };
+    
     window.addEventListener('keydown', handleKeyDown, { capture: true });
-    return () => window.removeEventListener('keydown', handleKeyDown, { capture: true });
-  }, []);
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown, { capture: true });
+        setNavigationBlocked(false); // Cleanup: ensure we don't block other scenes
+    };
+  }, [isFocused, setNavigationBlocked]);
 
   return (
     <div className="h-full w-full bg-black relative overflow-hidden flex items-center justify-center">
