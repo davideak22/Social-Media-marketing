@@ -12,7 +12,7 @@ export function PollScene() {
   const [votes, setVotes] = useState<Record<string, number>>({ tabako: 0, base: 0, mikes: 0 });
 
   const handleVote = (id: string) => {
-    setVotes(prev => ({ ...prev, [id]: prev[id] + 1 }));
+    setVotes(prev => ({ ...prev, [id]: prev[id] + 10 }));
   };
 
   const containerVariants = {
@@ -41,7 +41,7 @@ export function PollScene() {
         className="mb-16 text-center"
       >
         <h2 className="text-4xl md:text-6xl font-bold mb-4">Ki hallott már ezekről?</h2>
-        <p className="text-xl text-neutral-400">Vedd elő a kezed (vagy a telefonod)</p>
+        <p className="text-xl text-neutral-400">Kéz felnyújtás</p>
       </motion.div>
 
       <motion.div 

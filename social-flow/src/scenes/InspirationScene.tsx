@@ -58,8 +58,9 @@ export function InspirationScene() {
 
                     {/* The "Good" Lens - Interactive Hover Reveal */}
                     <motion.div 
+                        style={{ x: "-50%", y: "-50%" }}
                         whileHover={{ scale: 1.1 }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-600/20 backdrop-blur-xl rounded-full border border-blue-400/30 flex items-center justify-center shadow-[0_0_50px_rgba(37,99,235,0.3)] z-10 overflow-hidden"
+                        className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-600/20 backdrop-blur-xl rounded-full border border-blue-400/30 flex items-center justify-center shadow-[0_0_50px_rgba(37,99,235,0.3)] z-10 overflow-hidden"
                     >
                          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
                             <h3 className="text-xl font-bold text-white mb-2">Struktúra</h3>

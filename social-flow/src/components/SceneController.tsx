@@ -17,6 +17,7 @@ import { StrategyScene } from '../scenes/StrategyScene';
 import { AIScene } from '../scenes/AIScene';
 import { InteractiveScene } from '../scenes/InteractiveScene';
 import { RecruitmentScene } from '../scenes/RecruitmentScene';
+import { ThankYouScene } from '../scenes/ThankYouScene';
 
 const SCENES = [
   IntroScene,
@@ -34,6 +35,7 @@ const SCENES = [
   AIScene,
   InteractiveScene,
   RecruitmentScene,
+  ThankYouScene,
 ];
 
 import { Preloader } from './Preloader';

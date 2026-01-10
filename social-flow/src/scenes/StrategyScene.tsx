@@ -90,8 +90,8 @@ export function StrategyScene() {
                     className="text-center mt-24 p-6 bg-neutral-900 rounded-2xl border border-neutral-800"
                  >
                     <p className="text-2xl font-light">
-                        Nem minden nap kell posztolni.<br/>
-                        <span className="font-bold text-white">Akkor kell, amikor történik valami.</span>
+                        Minden nap kell posztolni.<br/>
+                        <span className="font-bold text-white">Akkor is kell, amikor történik valami.</span>
                     </p>
                  </motion.div>
             )}

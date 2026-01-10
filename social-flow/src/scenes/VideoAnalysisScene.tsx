@@ -1,7 +1,23 @@
 import { motion } from 'framer-motion';
-import { Heart, MessageCircle, Share, Music } from 'lucide-react';
+import { Heart, MessageCircle, Share, Music, Play } from 'lucide-react';
+import { useState, useRef } from 'react';
+import videoUrl from '../assets/akulturalisvideo.mp4';
 
 export function VideoAnalysisScene() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+        if (isPlaying) {
+            videoRef.current.pause();
+        } else {
+            videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    }
+  };
+
   const annotations = [
     { label: "Humor", x: "20%", y: "30%", rotation: -10, delay: 1 },
     { label: "Kulturális különbség", x: "60%", y: "40%", rotation: 5, delay: 2 },
@@ -24,16 +40,30 @@ export function VideoAnalysisScene() {
 
         {/* Video Placeholder Content */}
         {/* Note: In a real app, this would be a <video> tag. Using abstract gradient animation for now. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/50 via-neutral-900 to-neutral-900 z-0">
-             <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-white/20 font-bold text-4xl -rotate-12">TikTok videó helye</span>
-             </div>
+
+
+        <div className="absolute inset-0 bg-black z-0 group cursor-pointer" onClick={togglePlay}>
+             <video 
+                ref={videoRef}
+                src={videoUrl}
+                className="w-full h-full object-cover"
+                loop
+                playsInline
+             />
+             
+             {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm transition-opacity">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                        <Play size={32} fill="white" className="ml-1" />
+                    </div>
+                </div>
+             )}
         </div>
 
         {/* UI Overlay */}
         <div className="absolute bottom-0 w-full p-4 z-10 bg-gradient-to-t from-black/80 to-transparent pt-20 text-white">
             <div className="mb-4">
-                <h3 className="font-bold text-lg mb-1">@roman_magyar</h3>
+                <h3 className="font-bold text-lg mb-1">@kulturaliskulonbseg</h3>
                 <p className="text-sm opacity-80">Amikor megpróbálsz románul beszélni... 😅 #fyp #erdely</p>
             </div>
             <div className="flex items-center gap-2 text-sm">

@@ -45,8 +45,8 @@ export function AboutScene() {
 
           <div className="space-y-6 text-xl text-neutral-300 font-light">
             <ExperienceItem title="Mikes Elsősegély" role="Social Media" delay={0.2} />
-            <ExperienceItem title="Tabakó Fesztivál" role="Tartalomgyártás" delay={0.4} />
             <ExperienceItem title="MAKOSZ" role="Médiás munkacsoport" delay={0.6} />
+            <ExperienceItem title="Tabakó Fesztivál" role="Tartalomgyártás" delay={0.4} />
           </div>
         </motion.div>
 
