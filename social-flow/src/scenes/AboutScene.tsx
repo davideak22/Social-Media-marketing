@@ -53,8 +53,8 @@ export function AboutScene() {
         {/* Stats Column */}
         <div className="grid grid-rows-2 gap-8">
             <StatCard 
-                 label="Követő a nulláról" 
-                 value={showStats ? 700 : 0} 
+                 label="Követők a nulláról" 
+                 value={showStats ? 5000 : 0} 
                  delay={0.8}
             />
              <StatCard 

@@ -5,6 +5,7 @@ import { useKeyboardControls } from '../hooks/useKeyboardControls';
 import { IntroScene } from '../scenes/IntroScene';
 import { PollScene } from '../scenes/PollScene';
 import { AboutScene } from '../scenes/AboutScene';
+import { TitleScene } from '../scenes/TitleScene';
 import { DefinitionScene } from '../scenes/DefinitionScene';
 import { DesignTheoryScene } from '../scenes/DesignTheoryScene';
 import { DesignMistakesScene } from '../scenes/DesignMistakesScene';
@@ -21,6 +22,7 @@ const SCENES = [
   IntroScene,
   PollScene,
   AboutScene,
+  TitleScene,
   DefinitionScene,
   DesignTheoryScene,
   DesignMistakesScene,
