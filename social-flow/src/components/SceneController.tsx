@@ -21,6 +21,7 @@ import { AIScene } from '../scenes/AIScene';
 import { AITitleScene } from '../scenes/AITitleScene';
 import { InteractiveScene } from '../scenes/InteractiveScene';
 import { RecruitmentScene } from '../scenes/RecruitmentScene';
+import { PublicationScene } from '../scenes/PublicationScene';
 import { ThankYouScene } from '../scenes/ThankYouScene';
 import { VersionHistoryScene } from '../scenes/VersionHistoryScene';
 import { PhotographyTitleScene } from '../scenes/PhotographyTitleScene';
@@ -48,6 +49,7 @@ const SCENES = [
   AIScene,
   InteractiveScene,
   RecruitmentScene,
+  PublicationScene,
   ThankYouScene,
 ];
 

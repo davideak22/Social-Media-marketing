@@ -95,7 +95,7 @@ export function DesignMistakesScene() {
                 disabled={chaosLevel >= mistakes.length + 2}
             >
                 <AlertTriangle size={20} />
-                Tovább (vagy Jobb Nyíl)
+                Tovább
             </button>
 
              <button

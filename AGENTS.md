@@ -57,19 +57,23 @@
 - [x] **About Scene:** Animated counters + floating idle animation
 - [x] **TitleScene:** New centered typography scenes for transitions
 - [x] **Definition Scene:** Three pillars interaction
+- [x] **DesignTitleScene:** "Design" section title (Part 2)
 - [x] **Design Theory Scene:** Font morphing interaction (Keyboard Controlled)
 - [x] **Design Mistakes Scene:** Chaos vs Order visual (Keyboard Controlled)
 - [x] **Inspiration Scene:** Lens interaction
 - [x] **LogoComparisonScene:** Geometric vs Branded transformation
 - [x] **VersionHistoryScene:** First Ver vs Latest Ver (1:1 aspect)
+- [x] **PhotographyTitleScene:** "Content Creation" section title (Part 3)
 - [x] **Photography Scene:** Viewfinder overlay (Interactive Blocking)
 - [x] **VideoAnalysisScene:** Video with mute/play controls + annotations
 - [x] **Cultural Context Scene:** Cinematic transitions (Updated with local assets)
 - [x] **TikTokTransitionScene:** New transition scene duplicated from Video Analysis
 - [x] **Strategy Scene:** Interactive timeline (Keyboard Controlled)
+- [x] **AITitleScene:** "AI" section title (Part 4)
 - [x] **AI Scene:** Human vs AI comparison
 - [x] **Interactive Scene:** Brainstorming visualization
 - [x] **Recruitment Scene:** Final CTA
+- [x] **PublicationScene:** Recommended reading with QR code
 - [x] **ThankYouScene:** Credits and social links
 
 ### Phase 3: Polish & Preload (In Progress)
