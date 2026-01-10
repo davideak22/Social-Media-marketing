@@ -28,12 +28,42 @@ const STAGES = [
   }
 ];
 
+import { usePresentationStore } from '../store/presentationStore';
+import { useEffect } from 'react';
+
+// ... inside component ...
 export function DesignTheoryScene() {
   const [stageIndex, setStageIndex] = useState(0);
+  const { setNavigationBlocked } = usePresentationStore();
   const currentStage = STAGES[stageIndex];
 
+  useEffect(() => {
+    const isCompleted = stageIndex >= STAGES.length - 1;
+    setNavigationBlocked(!isCompleted);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+            if (stageIndex < STAGES.length - 1) {
+                e.stopPropagation();
+                setStageIndex(prev => prev + 1);
+            }
+        }
+    };
+
+    window.addEventListener('keydown', handleKeyDown, { capture: true });
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown, { capture: true });
+        setNavigationBlocked(false);
+    };
+  }, [stageIndex, setNavigationBlocked]);
+
   const nextStage = () => {
-    setStageIndex((prev) => (prev + 1) % STAGES.length);
+    // Only allow manual clicking if not completed, otherwise let standard click propagation handle navigation? 
+    // Actually standard behavior is click = next scene. 
+    // We want click = next stage if not done.
+    if (stageIndex < STAGES.length - 1) {
+        setStageIndex(prev => prev + 1);
+    }
   };
 
   return (

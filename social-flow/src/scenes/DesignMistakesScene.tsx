@@ -1,9 +1,45 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RefreshCcw, AlertTriangle } from 'lucide-react';
+import { usePresentationStore } from '../store/presentationStore';
 
 export function DesignMistakesScene() {
   const [chaosLevel, setChaosLevel] = useState(0);
+  const { setNavigationBlocked } = usePresentationStore();
+  
+  const mistakes = [
+    "Minden poszt más stílus",
+    "Túl sok font",
+    "Túl sok szín",
+    "„Majd jó lesz így is”",
+    "Trend másolása gondolkodás nélkül"
+  ];
+
+  const maxChaos = mistakes.length + 2;
+
+  // Handle Keyboard Navigation
+  useEffect(() => {
+    // Lock navigation initially
+    const isCompleted = chaosLevel >= maxChaos;
+    setNavigationBlocked(!isCompleted);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+            if (chaosLevel < maxChaos) {
+                // Consume event and increment chaos
+                e.stopPropagation(); 
+                setChaosLevel(prev => prev + 1);
+            }
+        }
+    };
+
+    window.addEventListener('keydown', handleKeyDown, { capture: true }); // Capture phase to beat the global listener if possible
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown, { capture: true });
+        setNavigationBlocked(false); // Cleanup
+    };
+  }, [chaosLevel, maxChaos, setNavigationBlocked]);
+
 
   // Mismatched styles for the chaos effect
   const styles = [
@@ -13,13 +49,7 @@ export function DesignMistakesScene() {
     { font: 'font-["Comic_Sans_MS"]', color: 'text-purple-600', bg: 'bg-pink-200', rotate: 5, scale: 1.2 },
   ];
 
-  const mistakes = [
-    "Minden poszt más stílus",
-    "Túl sok font",
-    "Túl sok szín",
-    "„Majd jó lesz így is”",
-    "Trend másolása gondolkodás nélkül"
-  ];
+  /* Rest of code */
 
   const currentStyle = styles[Math.min(chaosLevel, styles.length - 1)];
 
@@ -57,15 +87,15 @@ export function DesignMistakesScene() {
             ))}
         </div>
 
-        {/* Control Button */}
-        <div className="pt-8 flex justify-center gap-4">
+        {/* Control Button - Hidden mainly now but kept for mouse users */}
+        <div className="pt-8 flex justify-center gap-4 opacity-50 hover:opacity-100 transition-opacity">
             <button
                 onClick={() => setChaosLevel(prev => Math.min(prev + 1, mistakes.length + 2))}
                 className="px-6 py-3 bg-neutral-800 rounded-full hover:bg-neutral-700 transition flex items-center gap-2"
                 disabled={chaosLevel >= mistakes.length + 2}
             >
                 <AlertTriangle size={20} />
-                Rontsd el
+                Tovább (vagy Jobb Nyíl)
             </button>
 
              <button
@@ -73,7 +103,7 @@ export function DesignMistakesScene() {
                 className="px-6 py-3 bg-white text-black rounded-full hover:bg-neutral-200 transition flex items-center gap-2"
             >
                 <RefreshCcw size={20} />
-                Tisztázás
+                Újra
             </button>
         </div>
       </div>

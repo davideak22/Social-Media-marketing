@@ -10,6 +10,7 @@ import { DefinitionScene } from '../scenes/DefinitionScene';
 import { DesignTheoryScene } from '../scenes/DesignTheoryScene';
 import { DesignMistakesScene } from '../scenes/DesignMistakesScene';
 import { InspirationScene } from '../scenes/InspirationScene';
+import { LogoComparisonScene } from '../scenes/LogoComparisonScene';
 import { PhotographyScene } from '../scenes/PhotographyScene';
 import { VideoAnalysisScene } from '../scenes/VideoAnalysisScene';
 import { CulturalContextScene } from '../scenes/CulturalContextScene';
@@ -28,6 +29,7 @@ const SCENES = [
   DesignTheoryScene,
   DesignMistakesScene,
   InspirationScene,
+  LogoComparisonScene,
   PhotographyScene,
   VideoAnalysisScene,
   CulturalContextScene,
