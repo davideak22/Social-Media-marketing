@@ -11,8 +11,6 @@ export function useKeyboardControls(totalScenes: number) {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault(); // Prevent scrolling for Space
-        playClick();
-        
         const state = usePresentationStore.getState();
         if (state.customNextHandler) {
           state.customNextHandler();
@@ -20,7 +18,6 @@ export function useKeyboardControls(totalScenes: number) {
           state.goToNextScene(totalScenes);
         }
       } else if (e.key === 'ArrowLeft') {
-        playClick();
         usePresentationStore.getState().goToPrevScene();
       }
     }

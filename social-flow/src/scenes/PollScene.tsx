@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 
 const EVENTS = [
@@ -8,11 +8,25 @@ const EVENTS = [
   { id: 'mikes', label: 'Mikes Akadémia', color: 'from-purple-500 to-pink-500' },
 ];
 
-export function PollScene() {
-  const [votes, setVotes] = useState<Record<string, number>>({ tabako: 0, base: 0, mikes: 0 });
+function Counter({ to }: { to: number }) {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
 
-  const handleVote = (id: string) => {
-    setVotes(prev => ({ ...prev, [id]: prev[id] + 10 }));
+  useEffect(() => {
+    const controls = animate(count, to, { duration: 1.5, ease: "easeOut" });
+    return controls.stop;
+  }, [count, to]);
+
+  return <motion.span>{rounded}</motion.span>;
+}
+
+export function PollScene() {
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+
+  const handleReveal = (id: string) => {
+    if (!revealed[id]) {
+      setRevealed(prev => ({ ...prev, [id]: true }));
+    }
   };
 
   const containerVariants = {
@@ -56,24 +70,30 @@ export function PollScene() {
             variants={cardVariants}
             whileHover={{ scale: 1.05, y: -10 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => handleVote(event.id)}
-            className="group relative h-80 rounded-3xl bg-neutral-900 border border-neutral-800 overflow-hidden text-left p-8 transition-colors hover:border-neutral-600"
+            onClick={() => handleReveal(event.id)}
+            className="group relative h-80 rounded-3xl bg-neutral-900 border border-neutral-800 overflow-hidden text-left p-8 transition-colors hover:border-neutral-600 w-full"
           >
-            {/* Background Gradient on Hover */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${event.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+            {/* Background Gradient on Reveal */}
+            <div 
+                className={`absolute inset-0 bg-gradient-to-br ${event.color} transition-opacity duration-1000 ${revealed[event.id] ? 'opacity-20' : 'opacity-0 group-hover:opacity-10'}`} 
+            />
             
             <div className="relative z-10 flex flex-col h-full justify-between">
               <div>
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center mb-6 shadow-lg`}>
+                <motion.div 
+                    initial={{ scale: 1 }}
+                    animate={{ scale: revealed[event.id] ? 1.1 : 1 }}
+                    className={`w-12 h-12 rounded-full bg-gradient-to-br ${event.color} flex items-center justify-center mb-6 shadow-lg`}
+                >
                   <Check className="w-6 h-6 text-white" />
-                </div>
+                </motion.div>
                 <h3 className="text-3xl font-bold">{event.label}</h3>
               </div>
               
-              <div className="flex items-end gap-2">
-                 {/* Visual counter simulation */}
-                <span className="text-5xl font-mono font-bold tracking-tighter opacity-50 group-hover:opacity-100 transition-opacity">
-                   {100 + votes[event.id]}%
+              <div className="flex items-end gap-2 text-white">
+                 {/* Animated counter */}
+                <span className={`text-5xl font-mono font-bold tracking-tighter transition-opacity duration-500 ${revealed[event.id] ? 'opacity-100' : 'opacity-30'}`}>
+                   {revealed[event.id] ? <Counter to={100} /> : 0}%
                 </span>
                 <span className="text-sm text-neutral-500 mb-2">ismertség</span>
               </div>
