@@ -7,6 +7,7 @@ import { PollScene } from '../scenes/PollScene';
 import { AboutScene } from '../scenes/AboutScene';
 import { TitleScene } from '../scenes/TitleScene';
 import { DefinitionScene } from '../scenes/DefinitionScene';
+import { DesignTitleScene } from '../scenes/DesignTitleScene';
 import { DesignTheoryScene } from '../scenes/DesignTheoryScene';
 import { DesignMistakesScene } from '../scenes/DesignMistakesScene';
 import { InspirationScene } from '../scenes/InspirationScene';
@@ -17,10 +18,13 @@ import { VideoAnalysisScene } from '../scenes/VideoAnalysisScene';
 import { CulturalContextScene } from '../scenes/CulturalContextScene';
 import { StrategyScene } from '../scenes/StrategyScene';
 import { AIScene } from '../scenes/AIScene';
+import { AITitleScene } from '../scenes/AITitleScene';
 import { InteractiveScene } from '../scenes/InteractiveScene';
 import { RecruitmentScene } from '../scenes/RecruitmentScene';
 import { ThankYouScene } from '../scenes/ThankYouScene';
 import { VersionHistoryScene } from '../scenes/VersionHistoryScene';
+import { PhotographyTitleScene } from '../scenes/PhotographyTitleScene';
+
 
 const SCENES = [
   IntroScene,
@@ -28,16 +32,19 @@ const SCENES = [
   AboutScene,
   TitleScene,
   DefinitionScene,
+  DesignTitleScene,
   DesignTheoryScene,
   DesignMistakesScene,
   InspirationScene,
   LogoComparisonScene,
   VersionHistoryScene,
+  PhotographyTitleScene,
   PhotographyScene,
   TikTokTransitionScene,
   VideoAnalysisScene,
   CulturalContextScene,
   StrategyScene,
+  AITitleScene,
   AIScene,
   InteractiveScene,
   RecruitmentScene,
