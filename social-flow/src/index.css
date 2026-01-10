@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;700;900&family=Pacifico&family=JetBrains+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground overflow-hidden selection:bg-white/20;
+    /* Force 1080p aspect ratio logic if needed, but for now just full screen dark */
+  }
+
+  /* Hide scrollbars for cinematic feel */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
