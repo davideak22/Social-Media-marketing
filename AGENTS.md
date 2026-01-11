@@ -36,7 +36,7 @@
 
 ## 🔄 Current State (Update This!)
 
-**Last Updated:** 2026-01-10
+**Last Updated:** 2026-01-11
 **Working On:** Phase 3: Polish & Preload
 **Blocked By:** None
 
@@ -65,10 +65,20 @@
 - [x] **VersionHistoryScene:** First Ver vs Latest Ver (1:1 aspect)
 - [x] **PhotographyTitleScene:** "Content Creation" section title (Part 3)
 - [x] **Photography Scene:** Viewfinder overlay (Interactive Blocking)
+- [x] **HookConceptScene:** "The Hook" typography concept
+- [x] **HookReactionScene:** Visual reaction to the hook (Glassmorphism)
+- [x] **NewEraScene:** "New Era" quote and cinematic text
+- [x] **MovieTrailerScene:** Movie poster aesthetic ("ELŐZETES")
 - [x] **VideoAnalysisScene:** Video with mute/play controls + annotations
 - [x] **Cultural Context Scene:** Cinematic transitions (Updated with local assets)
 - [x] **TikTokTransitionScene:** New transition scene duplicated from Video Analysis
-- [x] **Strategy Scene:** Interactive timeline (Keyboard Controlled)
+- [x] **StrategyTitleScene:** "Stratégiák" section title
+- [x] **StrategyScene:** Interactive timeline (Keyboard Controlled)
+- [x] **IdeaConnectionScene:** "Instagram" strategy points
+- [x] **SecretAlgorithmScene:** "Secret Second Algorithm" reveal
+- [x] **ReasoningScene:** "This works because..." transition
+- [x] **ExplanationDetailsScene:** Psychological hook explanation
+- [x] **ComparisonTableScene:** Interactive table with "Evidence Sidebar" (Flexbox Layout)
 - [x] **AITitleScene:** "AI" section title (Part 4)
 - [x] **AI Scene:** Human vs AI comparison
 - [x] **Interactive Scene:** Brainstorming visualization
@@ -82,11 +92,11 @@
 - [ ] "Production Preview" test run
 - [ ] Offline drill (Airplane mode test)
 
-### Phase 4: Audio Experience (Pending)
+### Phase 4: Audio Experience (Adjusted)
 
-- [ ] Web Audio API implementation (Generative Sound)
-- [ ] Navigation clicks & Hover effects
-- [ ] Transition swooshes
+- [x] **Transition Silence:** Removed auto-play sounds on slide changes for smooth professional flow.
+- [ ] Web Audio API implementation (Optional Generative Sound)
+- [ ] Navigation clicks & Hover effects (Selective)
 
 ## 🏁 Mission Complete
 
