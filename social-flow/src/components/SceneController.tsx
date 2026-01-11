@@ -42,12 +42,15 @@ import { ComparisonTableScene } from '../scenes/ComparisonTableScene';
 import { StrategyTitleScene } from '../scenes/StrategyTitleScene';
 
 
+import { ImportanceScene } from '../scenes/ImportanceScene';
+
 const SCENES = [
   IntroScene,
   PollScene,
   AboutScene,
   TitleScene,
   DefinitionScene,
+  ImportanceScene, // Added ImportanceScene
   DesignTitleScene,
   DesignTheoryScene,
   DesignMistakesScene,
