@@ -30,6 +30,12 @@ import { PhotographyTitleScene } from '../scenes/PhotographyTitleScene';
 import { HookConceptScene } from '../scenes/HookConceptScene';
 import { HookReactionScene } from '../scenes/HookReactionScene';
 
+import { NewEraScene } from '../scenes/NewEraScene';
+import { MovieTrailerScene } from '../scenes/MovieTrailerScene';
+import { IdeaConnectionScene } from '../scenes/IdeaConnectionScene';
+import { SecretAlgorithmScene } from '../scenes/SecretAlgorithmScene';
+
+
 const SCENES = [
   IntroScene,
   PollScene,
@@ -51,6 +57,10 @@ const SCENES = [
   StrategyScene,
   HookConceptScene,
   HookReactionScene,
+  NewEraScene,
+  MovieTrailerScene,
+  IdeaConnectionScene,
+  SecretAlgorithmScene,
   AITitleScene,
   AIScene,
   InteractiveScene,
