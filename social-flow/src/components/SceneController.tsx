@@ -38,6 +38,9 @@ import { ReasoningScene } from '../scenes/ReasoningScene';
 import { ExplanationDetailsScene } from '../scenes/ExplanationDetailsScene';
 
 
+import { StrategyTitleScene } from '../scenes/StrategyTitleScene';
+
+
 const SCENES = [
   IntroScene,
   PollScene,
@@ -56,6 +59,7 @@ const SCENES = [
   TikTokTransitionScene,
   VideoAnalysisScene,
   CulturalContextScene,
+  StrategyTitleScene,
   StrategyScene,
   HookConceptScene,
   HookReactionScene,
