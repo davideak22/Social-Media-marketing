@@ -27,6 +27,9 @@ import { VersionHistoryScene } from '../scenes/VersionHistoryScene';
 import { PhotographyTitleScene } from '../scenes/PhotographyTitleScene';
 
 
+import { HookConceptScene } from '../scenes/HookConceptScene';
+import { HookReactionScene } from '../scenes/HookReactionScene';
+
 const SCENES = [
   IntroScene,
   PollScene,
@@ -41,10 +44,13 @@ const SCENES = [
   VersionHistoryScene,
   PhotographyTitleScene,
   PhotographyScene,
+
   TikTokTransitionScene,
   VideoAnalysisScene,
   CulturalContextScene,
   StrategyScene,
+  HookConceptScene,
+  HookReactionScene,
   AITitleScene,
   AIScene,
   InteractiveScene,
