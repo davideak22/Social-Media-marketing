@@ -102,7 +102,7 @@ export function StrategyScene() {
                  >
                     <p className="text-2xl font-light">
                         Minden nap kell posztolni.<br/>
-                        <span className="font-bold text-white">Akkor is kell, amikor történik valami.</span>
+                        <span className="font-bold text-white">Akkor is kell, amikor nem történik semmi.</span>
                     </p>
                  </motion.div>
             )}
