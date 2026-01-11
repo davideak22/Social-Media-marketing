@@ -131,7 +131,7 @@ export function ComparisonTableScene() {
                                 initial={{ opacity: 0, x: 50, width: 0 }}
                                 animate={{ opacity: 1, x: 0, width: '384px' }} // w-96 = 384px
                                 exit={{ opacity: 0, x: -20, width: 0 }}
-                                transition={{ duration: 0.5, type: 'spring' }}
+                                transition={{ duration: 0.7, ease: [0.2, 0, 0.2, 1] }}
                                 className="shrink-0 relative self-center flex flex-col justify-center gap-6"
                             >
                                 <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-900/40 to-blue-950/20 border border-blue-500/30 backdrop-blur-md shadow-2xl h-[280px] flex flex-col justify-center">
@@ -142,17 +142,17 @@ export function ComparisonTableScene() {
                                     
                                     <div className="text-xl leading-relaxed text-blue-100">
                                         {step === 1 && (
-                                            <motion.div key="s1" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                            <motion.div key="s1" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                                                 A felhasználók <span className="text-white font-bold block mt-4 text-3xl">0.05 másodperc</span> alatt alkotnak véleményt.
                                             </motion.div>
                                         )}
                                         {step === 2 && (
-                                            <motion.div key="s2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                            <motion.div key="s2" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                                                 A rossz hang <span className="text-white font-bold block mt-4 text-3xl">60%-os visszaesést</span> okoz a megtekintésben.
                                             </motion.div>
                                         )}
                                         {step === 3 && (
-                                            <motion.div key="s3" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+                                            <motion.div key="s3" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                                                 Az agy <span className="text-white font-bold block mt-4 text-3xl">60,000x gyorsabban</span> dolgozza fel a képet, mint a szöveget.
                                             </motion.div>
                                         )}
@@ -169,7 +169,7 @@ export function ComparisonTableScene() {
                      <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                         className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-emerald-900/40 to-emerald-800/20 border border-emerald-500/30 text-center mx-auto max-w-2xl"
                      >
                          <h3 className="text-3xl font-bold text-emerald-400 mb-2">Bizalom = Eladás</h3>
@@ -195,7 +195,7 @@ function HeaderCell({ title, active }: { title: string, active: boolean }) {
                 backgroundColor: active ? 'rgba(255,255,255,0.1)' : 'transparent',
             }}
             exit={{ opacity: 0, width: 0 }}
-            transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.2, 0, 0.2, 1] }}
             className="p-4 rounded-lg font-bold text-lg flex items-end overflow-hidden whitespace-nowrap"
         >
             {title}
@@ -217,7 +217,7 @@ function Cell({ value, subtext, type, highlight }: any) {
                 filter: highlight ? 'blur(0px)' : 'blur(0px)' // Removed blur
             }}
             exit={{ opacity: 0, width: 0 }}
-            transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.2, 0, 0.2, 1] }}
             className={`
                 p-6 rounded-xl border flex flex-col justify-center overflow-hidden whitespace-nowrap shadow-sm h-[100px]
                 ${!highlight ? (type === 'positive' ? 'border-green-900/5 text-green-900/30' : 'border-red-900/5 text-red-900/30') : ''}
