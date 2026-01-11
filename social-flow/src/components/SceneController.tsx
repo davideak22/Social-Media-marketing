@@ -36,6 +36,7 @@ import { IdeaConnectionScene } from '../scenes/IdeaConnectionScene';
 import { SecretAlgorithmScene } from '../scenes/SecretAlgorithmScene';
 import { ReasoningScene } from '../scenes/ReasoningScene';
 import { ExplanationDetailsScene } from '../scenes/ExplanationDetailsScene';
+import { ComparisonTableScene } from '../scenes/ComparisonTableScene';
 
 
 import { StrategyTitleScene } from '../scenes/StrategyTitleScene';
@@ -69,6 +70,7 @@ const SCENES = [
   SecretAlgorithmScene,
   ReasoningScene,
   ExplanationDetailsScene,
+  ComparisonTableScene,
   AITitleScene,
   AIScene,
   InteractiveScene,
