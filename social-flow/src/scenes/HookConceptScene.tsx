@@ -22,8 +22,8 @@ export function HookConceptScene() {
                 </div>
 
                 <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
-                    Csak mondanod kell valamit,<br/>
-                    ami <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">elgondolkodtatja</span> az embereket.
+                    Mondanod kell valamit, <br/>
+                    ami <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">gondolkodásra</span> készteti az embereket:
                 </h1>
             </motion.div>
 
