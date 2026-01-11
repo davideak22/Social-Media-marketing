@@ -3,9 +3,9 @@ import { Check } from 'lucide-react';
 
 export function ImportanceScene() {
   const benefits = [
-    "VIP helyszín belépő",
-    "Brand építés",
-    "Munkahely"
+    { text: "Munkahely", isPrimary: false },
+    { text: "Brand építés", isPrimary: true },
+    { text: "VIP helyszín belépő", isPrimary: false }
   ];
 
   return (
@@ -25,16 +25,32 @@ export function ImportanceScene() {
         <div className="grid gap-6 w-full max-w-2xl">
           {benefits.map((benefit, index) => (
             <motion.div
-              key={benefit}
+              key={benefit.text}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 + index * 0.2 }}
-              className="flex items-center space-x-4 bg-white/5 p-6 rounded-xl border border-white/10 backdrop-blur-sm"
+              className={`flex items-center space-x-4 p-6 rounded-xl border backdrop-blur-sm transition-all duration-300 ${
+                benefit.isPrimary 
+                  ? 'bg-purple-500/20 border-purple-500/50 scale-110 shadow-lg shadow-purple-900/20' 
+                  : 'bg-white/5 border-white/10'
+              }`}
             >
-              <div className="bg-green-500/20 p-3 rounded-full">
-                <Check className="w-6 h-6 text-green-400" />
+              <div className={`p-3 rounded-full ${benefit.isPrimary ? 'bg-purple-500 text-white' : 'bg-green-500/20 text-green-400'}`}>
+                <Check className={`w-6 h-6 ${benefit.isPrimary ? 'text-white' : 'text-green-400'}`} />
               </div>
-              <span className="text-2xl font-semibold">{benefit}</span>
+              <span className={`font-semibold ${benefit.isPrimary ? 'text-3xl bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-200' : 'text-2xl'}`}>
+                {benefit.text}
+              </span>
+              {benefit.isPrimary && (
+                <motion.span 
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.2 }}
+                  className="ml-auto text-xs font-bold px-3 py-1 bg-purple-500 text-white rounded-full tracking-wider uppercase"
+                >
+                  Top Skill
+                </motion.span>
+              )}
             </motion.div>
           ))}
         </div>
