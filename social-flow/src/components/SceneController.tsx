@@ -34,6 +34,8 @@ import { NewEraScene } from '../scenes/NewEraScene';
 import { MovieTrailerScene } from '../scenes/MovieTrailerScene';
 import { IdeaConnectionScene } from '../scenes/IdeaConnectionScene';
 import { SecretAlgorithmScene } from '../scenes/SecretAlgorithmScene';
+import { ReasoningScene } from '../scenes/ReasoningScene';
+import { ExplanationDetailsScene } from '../scenes/ExplanationDetailsScene';
 
 
 const SCENES = [
@@ -61,6 +63,8 @@ const SCENES = [
   MovieTrailerScene,
   IdeaConnectionScene,
   SecretAlgorithmScene,
+  ReasoningScene,
+  ExplanationDetailsScene,
   AITitleScene,
   AIScene,
   InteractiveScene,
