@@ -57,6 +57,7 @@
 - [x] **About Scene:** Animated counters + floating idle animation
 - [x] **TitleScene:** New centered typography scenes for transitions
 - [x] **Definition Scene:** Three pillars interaction
+- [x] **Importance Scene:** "Why it matters" checklist (Hungarian)
 - [x] **DesignTitleScene:** "Design" section title (Part 2)
 - [x] **Design Theory Scene:** Font morphing interaction (Keyboard Controlled)
 - [x] **Design Mistakes Scene:** Chaos vs Order visual (Keyboard Controlled)
