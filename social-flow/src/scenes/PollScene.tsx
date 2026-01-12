@@ -8,26 +8,69 @@ const EVENTS = [
   { id: 'mikes', label: 'Mikes Akadémia', color: 'from-purple-500 to-pink-500' },
 ];
 
-function Counter({ to }: { to: number }) {
+function Counter({ to, suffix = '', finalLabel }: { to: number; suffix?: string; finalLabel?: string }) {
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
+  const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const controls = animate(count, to, { duration: 1.5, ease: "easeOut" });
+    const controls = animate(count, to, { 
+      duration: 1.5, 
+      ease: "easeOut",
+      onComplete: () => setIsComplete(true)
+    });
     return controls.stop;
   }, [count, to]);
 
-  return <motion.span>{rounded}</motion.span>;
+  if (isComplete && finalLabel) {
+    return <>{finalLabel}</>;
+  }
+
+  return (
+    <>
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </>
+  );
 }
+
+import { usePresentationStore } from '../store/presentationStore';
 
 export function PollScene() {
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+  const { setNavigationBlocked } = usePresentationStore();
 
   const handleReveal = (id: string) => {
-    if (!revealed[id]) {
-      setRevealed(prev => ({ ...prev, [id]: true }));
-    }
+    setRevealed(prev => {
+      if (prev[id]) return prev;
+      return { ...prev, [id]: true };
+    });
   };
+
+  useEffect(() => {
+    // Check if all events are revealed
+    const allRevealed = EVENTS.every(e => revealed[e.id]);
+    setNavigationBlocked(!allRevealed);
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const isNextKey = e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown';
+      
+      if (isNextKey && !allRevealed) {
+        // Find the first unrevealed event
+        const nextEvent = EVENTS.find(ev => !revealed[ev.id]);
+        if (nextEvent) {
+          e.stopPropagation(); // Prevent scene transition
+          handleReveal(nextEvent.id);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown, { capture: true });
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown, { capture: true });
+      setNavigationBlocked(false);
+    };
+  }, [revealed, setNavigationBlocked]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,7 +136,11 @@ export function PollScene() {
               <div className="flex items-end gap-2 text-white">
                  {/* Animated counter */}
                 <span className={`text-5xl font-mono font-bold tracking-tighter transition-opacity duration-500 ${revealed[event.id] ? 'opacity-100' : 'opacity-30'}`}>
-                   {revealed[event.id] ? <Counter to={100} /> : 0}%
+                   {revealed[event.id] ? (
+                     <Counter to={100} suffix="%" finalLabel="sok" />
+                   ) : (
+                     "0%"
+                   )}
                 </span>
                 <span className="text-sm text-neutral-500 mb-2">ismertség</span>
               </div>
