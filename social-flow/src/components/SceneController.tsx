@@ -37,6 +37,7 @@ import { SecretAlgorithmScene } from '../scenes/SecretAlgorithmScene';
 import { ReasoningScene } from '../scenes/ReasoningScene';
 import { ExplanationDetailsScene } from '../scenes/ExplanationDetailsScene';
 import { ComparisonTableScene } from '../scenes/ComparisonTableScene';
+import { ABTestingScene } from '../scenes/ABTestingScene';
 
 
 import { StrategyTitleScene } from '../scenes/StrategyTitleScene';
@@ -50,7 +51,7 @@ const SCENES = [
   AboutScene,
   TitleScene,
   DefinitionScene,
-  ImportanceScene, // Added ImportanceScene
+  ImportanceScene, 
   DesignTitleScene,
   DesignTheoryScene,
   DesignMistakesScene,
@@ -74,6 +75,7 @@ const SCENES = [
   ReasoningScene,
   ExplanationDetailsScene,
   ComparisonTableScene,
+  ABTestingScene,
   AITitleScene,
   AIScene,
   InteractiveScene,
