@@ -1,40 +1,15 @@
 import { motion } from 'framer-motion';
 import { usePresentationStore } from '../store/presentationStore';
-import { ArrowRight, Maximize } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 export const StartScene = () => {
   const { startPresentation } = usePresentationStore();
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const toggleFullScreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      setIsFullscreen(true);
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-        setIsFullscreen(false);
-      }
-    }
-  };
 
   return (
     <div className="relative w-screen h-screen bg-black text-white flex flex-col items-center justify-center overflow-hidden font-sans">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-900/20 via-black to-black pointer-events-none" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 pointer-events-none mix-blend-overlay" />
-
-      {/* Full Screen Toggle */}
-      <motion.button
-        onClick={toggleFullScreen}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5 }}
-        whileHover={{ opacity: 1, scale: 1.1 }}
-        className="absolute top-8 right-8 z-50 p-2 text-white/50 hover:text-white transition-colors"
-      >
-        <Maximize className="w-6 h-6" />
-      </motion.button>
 
       <motion.div
         initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}

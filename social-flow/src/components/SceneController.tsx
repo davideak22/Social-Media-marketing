@@ -88,36 +88,72 @@ const SCENES = [
 
 import { StartScene } from '../scenes/StartScene';
 import { Preloader } from './Preloader';
+import { Maximize } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export function SceneController() {
   const { currentScene, direction, hasStarted } = usePresentationStore();
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
   
   // Initialize keyboard controls
   useKeyboardControls(SCENES.length);
 
   const CurrentSceneComponent = SCENES[currentScene];
 
-  if (!hasStarted) {
-    return <StartScene />;
-  }
-
   return (
     <div className="relative w-screen h-screen bg-background overflow-hidden">
       <Preloader />
       
-      <AnimatePresence mode="wait" custom={direction}>
-        <motion.div
-          key={currentScene}
-          custom={direction}
-          initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full"
+      {/* Global Full Screen Button */}
+      {!isFullscreen && (
+        <motion.button
+          onClick={toggleFullScreen}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          whileHover={{ opacity: 1, scale: 1.1 }}
+          className="absolute top-8 right-8 z-50 p-2 text-white/50 hover:text-white transition-colors"
         >
-          <CurrentSceneComponent />
-        </motion.div>
-      </AnimatePresence>
+          <Maximize className="w-6 h-6" />
+        </motion.button>
+      )}
+
+      {/* Scene Rendering */}
+      {!hasStarted ? (
+        <StartScene />
+      ) : (
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentScene}
+            custom={direction}
+            initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <CurrentSceneComponent />
+          </motion.div>
+        </AnimatePresence>
+      )}
       
       {/* Debug UI - remove in production */}
       <div className="absolute bottom-4 right-4 text-white/20 text-xs">
