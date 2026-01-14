@@ -44,6 +44,7 @@ import { StrategyTitleScene } from '../scenes/StrategyTitleScene';
 
 
 import { ImportanceScene } from '../scenes/ImportanceScene';
+import { PortfolioImpactScene } from '../scenes/PortfolioImpactScene';
 
 const SCENES = [
   IntroScene,
@@ -60,7 +61,7 @@ const SCENES = [
   VersionHistoryScene,
   PhotographyTitleScene,
   PhotographyScene,
-
+  
   TikTokTransitionScene,
   VideoAnalysisScene,
   CulturalContextScene,
@@ -79,6 +80,7 @@ const SCENES = [
   AITitleScene,
   AIScene,
   InteractiveScene,
+  PortfolioImpactScene,
   RecruitmentScene,
   PublicationScene,
   ThankYouScene,
