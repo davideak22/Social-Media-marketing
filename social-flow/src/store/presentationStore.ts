@@ -10,6 +10,8 @@ interface PresentationState {
   setNavigationBlocked: (blocked: boolean) => void;
   customNextHandler: (() => void) | null;
   setCustomNextHandler: (handler: (() => void) | null) => void;
+  hasStarted: boolean;
+  startPresentation: () => void;
 }
 
 export const usePresentationStore = create<PresentationState>((set) => ({
@@ -18,6 +20,11 @@ export const usePresentationStore = create<PresentationState>((set) => ({
   isNavigationBlocked: false,
   customNextHandler: null,
   setCustomNextHandler: (handler) => set({ customNextHandler: handler }),
+  
+  // Start Screen Logic
+  hasStarted: false,
+  startPresentation: () => set({ hasStarted: true }),
+
   goToNextScene: (totalScenes) =>
     set((state) => {
       if (state.isNavigationBlocked) return state;

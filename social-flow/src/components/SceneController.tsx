@@ -86,15 +86,20 @@ const SCENES = [
   ThankYouScene,
 ];
 
+import { StartScene } from '../scenes/StartScene';
 import { Preloader } from './Preloader';
 
 export function SceneController() {
-  const { currentScene, direction } = usePresentationStore();
+  const { currentScene, direction, hasStarted } = usePresentationStore();
   
   // Initialize keyboard controls
   useKeyboardControls(SCENES.length);
 
   const CurrentSceneComponent = SCENES[currentScene];
+
+  if (!hasStarted) {
+    return <StartScene />;
+  }
 
   return (
     <div className="relative w-screen h-screen bg-background overflow-hidden">
