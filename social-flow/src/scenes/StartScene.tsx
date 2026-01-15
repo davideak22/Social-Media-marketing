@@ -41,6 +41,7 @@ export const StartScene = () => {
           transition={{ delay: 0.6, duration: 1 }}
         >
           A cinematic journey into modern social media marketing.
+          <br />Deak David
         </motion.p>
 
         <motion.div
